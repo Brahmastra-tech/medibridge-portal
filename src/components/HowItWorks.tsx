@@ -1,87 +1,51 @@
+// src/components/HowItWorksStrip.tsx
 import React from 'react';
-import { FileUp, Cpu, Network, MapPin, CheckCircle2 } from 'lucide-react';
+import { Building2, FileSpreadsheet, RefreshCw } from 'lucide-react';
 
-export default function HowItWorks() {
-  const steps = [
-    {
-      num: '01',
-      title: 'Drop the File.',
-      desc: 'Excel, CSV, or the PDF payment advice your TPA emailed. MediBridge reads any hospital billing export directly—no remapping, zero IT setup required.',
-      badge: 'Zero Configuration'
-    },
-    {
-      num: '02',
-      title: 'AI Parses Each Line.',
-      desc: 'Our engine extracts Patient IDs, procedure codes, deductions, and co-pays—even if your billing format changes weekly. Every discrepancy is flagged.',
-      badge: 'Deep Disallowance Audit'
-    },
-    {
-      num: '03',
-      title: 'Reconcile with Payors.',
-      desc: 'Direct match against NHCX, CGHS, ECHS, and 24+ private TPA settlement feeds to detect uncredited UTRs and initiate automated dispute letters.',
-      badge: 'Bank UTR Settlement'
-    }
-  ];
-
+export const HowItWorksStrip: React.FC = () => {
   return (
-    <section id="how-it-works" className="py-24 bg-[#050f1e] text-white border-t border-slate-800 relative">
+    <section className="py-12 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Geographic Onboarding Banner */}
-        <div className="mb-14 p-4 rounded-2xl bg-cyan-950/30 border border-cyan-500/30 max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-          <div className="flex items-center gap-2.5">
-            <MapPin className="text-cyan-400 shrink-0" size={20} />
-            <p className="text-xs sm:text-sm text-slate-200">
-              <strong className="text-white">Active Onboarding Hub:</strong> Currently deploying on-premise & remote TPA desks across <span className="text-cyan-300 font-semibold">Delhi NCR, Haryana, and Punjab</span> mid-sized hospitals (50–300 beds).
+        <div className="text-center mb-10">
+          <p className="text-xs font-bold uppercase tracking-widest text-cyan-700">STREAMLINED ADOPTION</p>
+          <h3 className="text-2xl font-bold text-slate-900 mt-1">How SanjeetMedi Operates</h3>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+          {/* Step 1 */}
+          <div className="text-center p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-cyan-200 transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-cyan-600 text-white flex items-center justify-center mx-auto text-base font-bold shadow-md shadow-cyan-600/20 mb-4">
+              1
+            </div>
+            <h4 className="text-base font-bold text-slate-900">Rohini ID Validation</h4>
+            <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+              Every hospital onboarding and query is bound to verified National Registry Rohini credentials, preventing identity spoofing.
             </p>
           </div>
-          <a
-            href="#b2b"
-            className="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-bold text-xs whitespace-nowrap transition-all shadow-md"
-          >
-            Partner Hospital
-          </a>
-        </div>
 
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-cyan-400 text-xs font-semibold tracking-widest uppercase">
-            Transparent Workflow
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold mt-2">
-            How MediBridge Works
-          </h2>
-          <p className="text-slate-400 text-xs sm:text-sm mt-3">
-            From file ingestion to bank settlement recovery in three seamless steps.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {steps.map((step, idx) => (
-            <div
-              key={idx}
-              className="p-8 rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 transition-all flex flex-col justify-between"
-            >
-              <div>
-                <span className="text-5xl font-black text-cyan-400/30 italic font-serif block mb-4">
-                  {step.num}
-                </span>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-400 bg-cyan-500/10 px-2.5 py-1 rounded-full mb-3 inline-block">
-                  {step.badge}
-                </span>
-                <h3 className="text-xl font-bold text-white mb-3">
-                  {step.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                  {step.desc}
-                </p>
-              </div>
-
-              <div className="mt-8 pt-4 border-t border-slate-800/80 flex items-center gap-2 text-xs text-slate-400">
-                <CheckCircle2 size={15} className="text-emerald-400" /> Fully Automated Flow
-              </div>
+          {/* Step 2 */}
+          <div className="text-center p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-cyan-200 transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center mx-auto text-base font-bold shadow-md shadow-slate-900/20 mb-4">
+              2
             </div>
-          ))}
+            <h4 className="text-base font-bold text-slate-900">Empanelment & RCM Sync</h4>
+            <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+              Ingest claims, track pre-auth approvals across AB-PMJAY, CGHS, and private insurers with automated query clearance.
+            </p>
+          </div>
+
+          {/* Step 3 */}
+          <div className="text-center p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-emerald-200 transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center mx-auto text-base font-bold shadow-md shadow-emerald-600/20 mb-4">
+              3
+            </div>
+            <h4 className="text-base font-bold text-slate-900">Auto-Reconciliation & Recovery</h4>
+            <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+              Bank UTR receipts are auto-matched against payer deductions in real time, routing variances directly into recovery workflows.
+            </p>
+          </div>
         </div>
       </div>
     </section>
   );
-}
+};
